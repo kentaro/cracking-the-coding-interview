@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-
 // 問題 1.5
 // 文字の連続する数を使って基本的な文字列圧縮を行うメソッドを実装してください。たとえば「aabccccaaa」は「a2b1c5a3」のようにしてください。
 // もし、圧縮変換された文字列が元の文字列よりも短かくならなかった場合は、元の文字列を返してください。l
 
+import java.util.ArrayList;
+
+// 無駄過ぎるのであとで書き直す
 public class Problem15 {
 
 	static class Tuple<T1, T2> {
