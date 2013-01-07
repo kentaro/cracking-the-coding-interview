@@ -61,6 +61,8 @@ public class Problem15 {
 		}
 
 		String result =  buffer.toString();
+
+		// 最初にこれ判定したいところ…
 		if (result.length() <= str.length()) {
 			return result;
 		}
