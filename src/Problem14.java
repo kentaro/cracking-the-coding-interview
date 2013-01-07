@@ -9,12 +9,41 @@
 
 public class Problem14 {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static String replaceSpaces(String str) {
+		int newLength  = 0;
+		int spaceCount = 0;
 
+		for (int i = 0, l = str.length(); i < l; i++) {
+			char c = str.charAt(i);
+			if (c == ' ') {
+				spaceCount++;
+			}
+			else {
+				newLength += 1 + (spaceCount * 3);
+				spaceCount = 0;
+			}
+		}
+
+		int cursor = 0;
+		char[] charArray = new char[newLength];
+
+		for (int i = 0; cursor < newLength; i++) {
+			char c = str.charAt(i);
+			if (c == ' ') {
+				charArray[cursor++] = '%';
+				charArray[cursor++] = '2';
+				charArray[cursor++] = '0';
+			}
+			else {
+				charArray[cursor++] = c;
+			}
+		}
+
+		return new String(charArray);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(replaceSpaces(args[0]));
 	}
 
 }
