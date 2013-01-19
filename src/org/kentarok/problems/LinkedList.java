@@ -40,4 +40,26 @@ public class LinkedList<T> {
 			}
 		}
 	}
+
+	public Node<T> nthToLast(Integer n) {
+		int last = 0;
+		Iterator<T> iterator = iterator();
+
+		while (iterator.hasNext()) {
+			iterator.next();
+			last++;
+		}
+
+		int i = 0;
+		iterator = iterator();
+		Node<T> node = null;
+
+		while (iterator.hasNext()) {
+			node = iterator.next();
+			if (i == last - n) break;
+			i++;
+		}
+
+		return node;
+	}
 }
