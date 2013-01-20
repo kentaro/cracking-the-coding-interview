@@ -3,7 +3,7 @@ package org.kentarok.problems;
 import java.util.Hashtable;
 
 // とりあえず非効率バージョン
-public class LinkedList<T> {
+public class LinkedList<T extends Comparable<? super T>> {
 	private Node<T> root;
 
 	public LinkedList() {
@@ -61,5 +61,31 @@ public class LinkedList<T> {
 		}
 
 		return node;
+	}
+
+	public LinkedList<T> proceedNodesUnder(T x) {
+		LinkedList<T> former = new LinkedList<T>();
+		LinkedList<T> latter = new LinkedList<T>();
+		Iterator<T> iterator = iterator();
+
+		while (iterator.hasNext()) {
+			Node<T> node = iterator.next();
+			if (node.getData().compareTo(x) < 0) {
+				former.append(node.getData());
+			}
+			else {
+				latter.append(node.getData());
+			}
+		}
+
+		Iterator<T> formerIterator = former.iterator();
+		Iterator<T> latterIterator = latter.iterator();
+		Node<T> node = formerIterator.getCurrent();
+		while (formerIterator.hasNext()) {
+			node = formerIterator.next();
+		}
+		node.setNext(latterIterator.next());
+
+		return former;
 	}
 }
